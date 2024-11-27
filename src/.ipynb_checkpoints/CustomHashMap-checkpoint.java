@@ -8,9 +8,9 @@ public class CustomHashMap<K,V> extends AbstractMap<K,V> implements Map<K,V> {
     private int resizeFactor;
 
     public CustomHashMap(int resizeFactor) {
-    this.size = 0;
-    this.table = new Entry[2];
-    this.resizeFactor = resizeFactor;
+        this.size = 0;
+        this.table = new Entry[2];
+        this.resizeFactor = resizeFactor;
     }
 
     private static class Entry<K,V> {
