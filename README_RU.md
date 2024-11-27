@@ -84,12 +84,11 @@
 - в случае обнаружения в бакете элементов с совпадающими хэшами (коллизии) произведен поиск в нодах с коллизией хэша по значению ключа.
 
 7. Должен быть реализован стандартный набор методов:
-
- 	containsKey
-    containsValue
-    get(Object key)
-    keySet()
-    put(K key, V value)
-    remove(Object key)
-    size()
+- containsKey
+- containsValue
+- get(Object key)
+- keySet()
+- put(K key, V value)
+- remove(Object key)
+- size()
 
