@@ -4,7 +4,7 @@
 
 
 public class CustomHashMap<K,V> {//extends AbstractMap<K,V> implements Map<K,V> {
-    private Entry<K,V>[] table;
+    //private Entry<K,V>[] table;
     private int size;
     private int resizeFactor;
 
@@ -13,10 +13,17 @@ public class CustomHashMap<K,V> {//extends AbstractMap<K,V> implements Map<K,V> 
         this.size = 0;
         // ??? this.table = new Entry[2];
         this.resizeFactor = resizeFactor;
-        
-
     }
-
+    
+    public static int calculateIndex(Object e, int l) {
+        int h = e.hashCode();
+        long min_int = Integer.MIN_VALUE;
+        long max_int = Integer.MAX_VALUE;
+        float r = (float)((long) h - min_int) / (max_int - min_int);
+        int i = Math.round((float) (l - 1) * r);
+        return i;
+        }
+/*
     private static class Entry<K,V> {
         int hash;
         K key;
@@ -30,7 +37,7 @@ public class CustomHashMap<K,V> {//extends AbstractMap<K,V> implements Map<K,V> 
             
         }
     }
-    /*
+
     private void resizeTable() {
         Entry<K,V>[] newTable = new Entry[table.length * 2];
         for (Entry<K,V> entry : table) {
