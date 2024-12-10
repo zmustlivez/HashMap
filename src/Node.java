@@ -23,7 +23,7 @@ public class Node<K,V> {
         return value;
     }
 
-    public Node getNext() {
+    public Node<K,V> getNext() {
         return next;
     }    
 

@@ -15,12 +15,12 @@ public class CustomLinkedList<K,V> {
         if (head==null) {
             head = newNode;
         } else {
-            Node cur = head;
+            Node<K,V> cur = head;
 
             while (cur.getNext() != null) {
                 cur = cur.getNext();
             }
-            //cur.setNext(newNode);
+            cur.setNext(newNode);
         }
         size++;
     }
