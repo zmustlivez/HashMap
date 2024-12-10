@@ -61,11 +61,7 @@ public class CustomLinkedList<K,V> implements Iterable<Node<K, V>>{
 
             @Override
             public boolean hasNext() {
-                if (current == null) {
-                    return false;
-                } else {
-                    return current.getNext() != null;
-                }
+                return current != null;
             }
 
             @Override
@@ -73,9 +69,10 @@ public class CustomLinkedList<K,V> implements Iterable<Node<K, V>>{
                 if (!hasNext()) {
                     throw new NoSuchElementException();
                 }
-                Node<K, V> node = current.getNext();
-                current = node;
-                return node;
+                Node<K, V> current_node = current;
+                Node<K, V> next_node = current.getNext();
+                current = next_node;
+                return current_node;
             }
         };
     }
