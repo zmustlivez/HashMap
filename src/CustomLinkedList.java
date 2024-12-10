@@ -1,7 +1,7 @@
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-public class CustomLinkedList<K,V> {
+public class CustomLinkedList<K,V> implements Iterable<Node<K, V>>{
     private int size;
     private Node<K,V> head;
 
@@ -12,18 +12,17 @@ public class CustomLinkedList<K,V> {
     }
     
     public void  add(K k, V v) {
-
         Node<K,V> newNode = new Node<K,V>(k, v);
    
         if (head==null) {
             head = newNode;
         } else {
-            Node<K,V> cur = head;
+            Node<K,V> current = head;
 
-            while (cur.getNext() != null) {
-                cur = cur.getNext();
+            while (current.getNext() != null) {
+                current = current.getNext();
             }
-            cur.setNext(newNode);
+            current.setNext(newNode);
         }
         size++;
     }
@@ -54,4 +53,30 @@ public class CustomLinkedList<K,V> {
         }
     }
     */
+    
+    @Override
+    public Iterator<Node<K, V>> iterator() {
+        return new Iterator<Node<K, V>>() {
+            private Node<K, V> current = head;
+
+            @Override
+            public boolean hasNext() {
+                if (current == null) {
+                    return false;
+                } else {
+                    return current.getNext() != null;
+                }
+            }
+
+            @Override
+            public Node<K, V> next() {
+                if (!hasNext()) {
+                    throw new NoSuchElementException();
+                }
+                Node<K, V> node = current.getNext();
+                current = node;
+                return node;
+            }
+        };
+    }
 }
