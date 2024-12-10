@@ -25,3 +25,6 @@ replay_pid*
 
 # Jupiter Notebook files
 .ipynb_checkpoints/
+src/.ipynb_checkpoints/
+bin/.ipynb_checkpoints/
+test/.ipynb_checkpoints/
