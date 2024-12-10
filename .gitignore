@@ -24,4 +24,4 @@ hs_err_pid*
 replay_pid*
 
 # Jupiter Notebook files
-.ipynb_checkpoints
+.ipynb_checkpoints/
