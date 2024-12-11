@@ -76,4 +76,29 @@ public class CustomLinkedList<K,V> implements Iterable<Node<K, V>>{
             }
         };
     }
+        public boolean remove(Object o) {
+        if (head == null) {
+            return false;
+        }
+        if (o == null) {
+            if (head.getKey() == null) {
+                head = head.getNext();
+                size--;
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            Node<K, V> tmp = head;
+            while (tmp.getNext() != null) {
+                if (tmp.getNext().getKey().equals(o)) {
+                    tmp.setNext(tmp.getNext().getNext());
+                    size--;
+                    return true;
+                }
+                tmp = tmp.getNext();
+            }
+        }
+        return false;
+    }
 }
